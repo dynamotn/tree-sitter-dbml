@@ -1,13 +1,7 @@
 const ANYTHING = /[^\n\r]+/;
 const NEWLINE = /\r?\n/;
 const IDENTIFIER = /[a-zA-Z0-9_.]+/;
-const KEYWORD_PROJECT = "Project";
-const KEYWORD_TABLE = "Table";
-const KEYWORD_TABLE_GROUP = "TableGroup";
 const CONTENT = /[^']*/;
-const NOTE = /[nN]ote/;
-const AS = "as";
-const DB_TYPE = "database_type";
 
 module.exports = grammar({
   name: "dbml",
@@ -20,7 +14,7 @@ module.exports = grammar({
     definition: ($) =>
       seq($.keyword, $.identifier, optional($._alias), $.block),
 
-    keyword: (_) => choice(KEYWORD_PROJECT, KEYWORD_TABLE, KEYWORD_TABLE_GROUP),
+    keyword: (_) => choice("Project", "Table", "TableGroup"),
 
     _alias: ($) => seq("as", $.identifier),
 
@@ -28,13 +22,74 @@ module.exports = grammar({
 
     note: ($) => seq($.note_start, ":", $.string),
 
-    note_start: ($) => choice(NOTE, DB_TYPE),
+    note_start: ($) => choice(/[nN]ote/, IDENTIFIER),
 
-    item: ($) => seq($.identifier, NEWLINE),
+    default: ($) => seq($.default_start, ":", $.value),
 
-    string: ($) => seq("'", CONTENT, "'"),
+    default_start: ($) => "default",
 
-    identifier: (_) => IDENTIFIER,
+    value: ($) =>
+      choice($.number, $.string, $.expression, "true", "false", "null", "NULL"),
+
+    number: ($) => repeat1(/[0-9]+/),
+
+    type: ($) =>
+      seq(
+        choice(
+          "blob",
+          "bool",
+          "boolean",
+          "char",
+          "character",
+          "date",
+          "datetime",
+          "decimal",
+          "float",
+          "json",
+          /(big|tiny|)int/,
+          "integer",
+          "long",
+          "number",
+          "numeric",
+          "ntext",
+          "rowid",
+          "smallint",
+          "real",
+          "text",
+          "timestamp",
+          "varchar"
+        ),
+        optional(/\(\d+\)/)
+      ),
+
+    item: ($) =>
+      seq($.identifier, optional($.type), optional($.setting), NEWLINE),
+
+    string: ($) => choice(seq("'", CONTENT, "'"), seq("'''", CONTENT, "'''")),
+
+    expression: ($) => seq("`", /[^`]*/, "`"),
+
+    setting: ($) =>
+      seq(
+        "[",
+        repeat(seq(choice($.note, $.default, $.setting_kind), optional(","))),
+        "]"
+      ),
+
+    setting_kind: ($) =>
+      choice(
+        "increment",
+        "primary key",
+        "pk",
+        "null",
+        "not null",
+        "unique",
+        "headercolor",
+        "type",
+        "name"
+      ),
+
+    identifier: (_) => seq(optional('"'), IDENTIFIER, optional('"')),
 
     comment: ($) =>
       token(

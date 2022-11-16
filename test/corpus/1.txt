@@ -23,8 +23,15 @@ Project project_name {
 ================================================================================
 Table simple
 ================================================================================
-Table core.user {
+Table "test.abc" {
   // Comment thu 2
+  "id" int(10) [pk, not null, increment]
+  "lucky_number" int(10) [ pk, unique, default: 123, note: 'Number' ]
+  "private_key" varchar(255) [not null, note: 'to include unit number']
+  "open_at" datetime [not null]
+  "created_at" timestamp [default: NULL]
+  "updated_at" timestamp [default: NULL]
+  "deleted_at" timestamp [default: NULL]
 }
 --------------------------------------------------------------------------------
 
@@ -33,7 +40,61 @@ Table core.user {
     (keyword)
     (identifier)
     (block
-      (comment))))
+      (comment)
+      (item
+        (identifier)
+        (type)
+        (setting
+          (setting_kind)
+          (setting_kind)
+          (setting_kind)))
+      (item
+        (identifier)
+        (type)
+        (setting
+          (setting_kind)
+          (setting_kind)
+          (default
+            (default_start)
+            (value
+              (number)))
+          (note
+            (note_start)
+            (string))))
+      (item
+        (identifier)
+        (type)
+        (setting
+          (setting_kind)
+          (note
+            (note_start)
+            (string))))
+      (item
+        (identifier)
+        (type)
+        (setting
+          (setting_kind)))
+      (item
+        (identifier)
+        (type)
+        (setting
+          (default
+            (default_start)
+            (value))))
+      (item
+        (identifier)
+        (type)
+        (setting
+          (default
+            (default_start)
+            (value))))
+      (item
+        (identifier)
+        (type)
+        (setting
+          (default
+            (default_start)
+            (value)))))))
 
 ================================================================================
 Table alias
@@ -41,6 +102,11 @@ Table alias
 Table core.user as U { /* Day la comment
   cha can co gi het
 */
+  Note: '''
+    This is a block string
+    This string can spans over multiple lines.
+    `now()`
+  '''
 }
 --------------------------------------------------------------------------------
 
@@ -50,7 +116,10 @@ Table core.user as U { /* Day la comment
     (identifier)
     (identifier)
     (block
-      (comment))))
+      (comment)
+      (note
+        (note_start)
+          (string)))))
 
 ================================================================================
 TableGroup
