@@ -62,6 +62,29 @@
     }
   },
   {
+    "type": "schema_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword_table",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source",
     "named": true,
     "fields": {},
@@ -71,6 +94,10 @@
       "types": [
         {
           "type": "project_definition",
+          "named": true
+        },
+        {
+          "type": "schema_definition",
           "named": true
         }
       ]
@@ -99,6 +126,10 @@
   },
   {
     "type": "keyword_project",
+    "named": true
+  },
+  {
+    "type": "keyword_table",
     "named": true
   },
   {
