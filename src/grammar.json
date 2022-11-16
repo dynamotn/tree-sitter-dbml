@@ -54,10 +54,6 @@
         }
       ]
     },
-    "index": {
-      "type": "STRING",
-      "value": "Indexes"
-    },
     "_alias": {
       "type": "SEQ",
       "members": [
@@ -167,20 +163,16 @@
           "name": "expression"
         },
         {
-          "type": "STRING",
-          "value": "true"
+          "type": "PATTERN",
+          "value": "true|TRUE"
         },
         {
-          "type": "STRING",
-          "value": "false"
+          "type": "PATTERN",
+          "value": "false|FALSE"
         },
         {
-          "type": "STRING",
-          "value": "null"
-        },
-        {
-          "type": "STRING",
-          "value": "NULL"
+          "type": "PATTERN",
+          "value": "null|NULL"
         }
       ]
     },
@@ -202,44 +194,60 @@
               "value": "blob"
             },
             {
-              "type": "STRING",
-              "value": "bool"
+              "type": "PATTERN",
+              "value": "bool(|ean)"
             },
             {
               "type": "STRING",
-              "value": "boolean"
+              "value": "bytea"
+            },
+            {
+              "type": "PATTERN",
+              "value": "char(|acter)"
             },
             {
               "type": "STRING",
-              "value": "char"
+              "value": "character varying"
+            },
+            {
+              "type": "PATTERN",
+              "value": "date(|time)"
             },
             {
               "type": "STRING",
-              "value": "character"
-            },
-            {
-              "type": "STRING",
-              "value": "date"
-            },
-            {
-              "type": "STRING",
-              "value": "datetime"
+              "value": "double"
             },
             {
               "type": "STRING",
               "value": "decimal"
             },
             {
-              "type": "STRING",
-              "value": "float"
+              "type": "PATTERN",
+              "value": "float(|4|8)"
             },
             {
               "type": "STRING",
-              "value": "json"
+              "value": "geometry"
+            },
+            {
+              "type": "STRING",
+              "value": "geography"
             },
             {
               "type": "PATTERN",
-              "value": "(big|tiny|)int"
+              "value": "box(2|3)d"
+            },
+            {
+              "type": "PATTERN",
+              "value": "json(|b)"
+            },
+            {
+              "type": "PATTERN",
+              "value": "(big|tiny|small|)int"
+            },
+            {
+              "type": "PATTERN",
+              "value": "int(2|4|8)"
             },
             {
               "type": "STRING",
@@ -248,6 +256,10 @@
             {
               "type": "STRING",
               "value": "long"
+            },
+            {
+              "type": "STRING",
+              "value": "money"
             },
             {
               "type": "STRING",
@@ -263,15 +275,23 @@
             },
             {
               "type": "STRING",
+              "value": "precision"
+            },
+            {
+              "type": "STRING",
               "value": "rowid"
             },
             {
               "type": "STRING",
-              "value": "smallint"
+              "value": "real"
             },
             {
-              "type": "STRING",
-              "value": "real"
+              "type": "PATTERN",
+              "value": "(small|big|)serial"
+            },
+            {
+              "type": "PATTERN",
+              "value": "serial(2|4|8)"
             },
             {
               "type": "STRING",
@@ -279,11 +299,27 @@
             },
             {
               "type": "STRING",
-              "value": "timestamp"
+              "value": "time"
+            },
+            {
+              "type": "PATTERN",
+              "value": "timestamp(|z)"
+            },
+            {
+              "type": "PATTERN",
+              "value": "timestamp with(|out) time zone"
             },
             {
               "type": "STRING",
-              "value": "varchar"
+              "value": "uuid"
+            },
+            {
+              "type": "PATTERN",
+              "value": "(|n)varchar"
+            },
+            {
+              "type": "STRING",
+              "value": "xml"
             }
           ]
         },

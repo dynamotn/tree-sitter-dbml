@@ -224,10 +224,6 @@
     "named": false
   },
   {
-    "type": "NULL",
-    "named": false
-  },
-  {
     "type": "Project",
     "named": false
   },
@@ -260,32 +256,16 @@
     "named": false
   },
   {
-    "type": "bool",
+    "type": "bytea",
     "named": false
   },
   {
-    "type": "boolean",
-    "named": false
-  },
-  {
-    "type": "char",
-    "named": false
-  },
-  {
-    "type": "character",
+    "type": "character varying",
     "named": false
   },
   {
     "type": "comment",
     "named": true
-  },
-  {
-    "type": "date",
-    "named": false
-  },
-  {
-    "type": "datetime",
-    "named": false
   },
   {
     "type": "decimal",
@@ -296,11 +276,15 @@
     "named": true
   },
   {
-    "type": "false",
+    "type": "double",
     "named": false
   },
   {
-    "type": "float",
+    "type": "geography",
+    "named": false
+  },
+  {
+    "type": "geometry",
     "named": false
   },
   {
@@ -316,11 +300,11 @@
     "named": false
   },
   {
-    "type": "json",
+    "type": "long",
     "named": false
   },
   {
-    "type": "long",
+    "type": "money",
     "named": false
   },
   {
@@ -352,6 +336,10 @@
     "named": false
   },
   {
+    "type": "precision",
+    "named": false
+  },
+  {
     "type": "primary key",
     "named": false
   },
@@ -364,19 +352,11 @@
     "named": false
   },
   {
-    "type": "smallint",
-    "named": false
-  },
-  {
     "type": "text",
     "named": false
   },
   {
-    "type": "timestamp",
-    "named": false
-  },
-  {
-    "type": "true",
+    "type": "time",
     "named": false
   },
   {
@@ -388,7 +368,11 @@
     "named": false
   },
   {
-    "type": "varchar",
+    "type": "uuid",
+    "named": false
+  },
+  {
+    "type": "xml",
     "named": false
   },
   {

@@ -29,7 +29,14 @@ module.exports = grammar({
     default_start: ($) => "default",
 
     value: ($) =>
-      choice($.number, $.string, $.expression, "true", "false", "null", "NULL"),
+      choice(
+        $.number,
+        $.string,
+        $.expression,
+        /true|TRUE/,
+        /false|FALSE/,
+        /null|NULL/
+      ),
 
     number: ($) => repeat1(/[0-9]+/),
 
@@ -37,27 +44,38 @@ module.exports = grammar({
       seq(
         choice(
           "blob",
-          "bool",
-          "boolean",
-          "char",
-          "character",
-          "date",
-          "datetime",
+          /bool(|ean)/,
+          "bytea",
+          /char(|acter)/,
+          "character varying",
+          /date(|time)/,
+          "double",
           "decimal",
-          "float",
-          "json",
-          /(big|tiny|)int/,
+          /float(|4|8)/,
+          "geometry",
+          "geography",
+          /box(2|3)d/,
+          /json(|b)/,
+          /(big|tiny|small|)int/,
+          /int(2|4|8)/,
           "integer",
           "long",
+          "money",
           "number",
           "numeric",
           "ntext",
+          "precision",
           "rowid",
-          "smallint",
           "real",
+          /(small|big|)serial/,
+          /serial(2|4|8)/,
           "text",
-          "timestamp",
-          "varchar"
+          "time",
+          /timestamp(|z)/,
+          /timestamp with(|out) time zone/,
+          "uuid",
+          /(|n)varchar/,
+          "xml"
         ),
         optional(/\(\d+\)/)
       ),
