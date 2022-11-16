@@ -1,0 +1,37 @@
+{
+  "name": "tree-sitter-dbml",
+  "version": "0.0.1",
+  "description": "A tree-sitter grammar for Database Markup Language (DBML)",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "tree-sitter test",
+    "start": "tree-sitter generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dynamotn/tree-sitter-dbml.git"
+  },
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "lexer",
+    "dbml"
+  ],
+  "author": "dynamotn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dynamotn/tree-sitter-dbml/issues"
+  },
+  "homepage": "https://github.com/dynamotn/tree-sitter-dbml#readme",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "@fsouza/prettierd": "^0.22.4",
+    "eslint": "^8.27.0",
+    "eslint_d": "^12.2.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "tree-sitter-cli": "^0.20.7"
+  }
+}
