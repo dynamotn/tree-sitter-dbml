@@ -1,0 +1,20 @@
+================================================================================
+Project
+================================================================================
+Project project_name {
+  database_type: 'PostgreSQL'
+  Note: 'Description of the project'
+}
+--------------------------------------------------------------------------------
+
+(source
+  (project_definition
+    (keyword_project)
+    (identifier)
+    (block
+      (note
+        (note_start)
+          (string))
+      (note
+        (note_start)
+          (string)))))
