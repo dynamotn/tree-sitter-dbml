@@ -5,53 +5,15 @@
       "type": "REPEAT",
       "content": {
         "type": "SYMBOL",
-        "name": "_definition"
+        "name": "definition"
       }
     },
-    "_definition": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "project_definition"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "schema_definition"
-        }
-      ]
-    },
-    "keyword_project": {
-      "type": "STRING",
-      "value": "Project"
-    },
-    "keyword_table": {
-      "type": "STRING",
-      "value": "Table"
-    },
-    "project_definition": {
+    "definition": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "keyword_project"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "block"
-        }
-      ]
-    },
-    "schema_definition": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "keyword_table"
+          "name": "keyword"
         },
         {
           "type": "SYMBOL",
@@ -72,6 +34,23 @@
         {
           "type": "SYMBOL",
           "name": "block"
+        }
+      ]
+    },
+    "keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Project"
+        },
+        {
+          "type": "STRING",
+          "value": "Table"
+        },
+        {
+          "type": "STRING",
+          "value": "TableGroup"
         }
       ]
     },
@@ -103,6 +82,10 @@
               {
                 "type": "SYMBOL",
                 "name": "note"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "item"
               }
             ]
           }
@@ -143,6 +126,19 @@
         }
       ]
     },
+    "item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
+    },
     "string": {
       "type": "SEQ",
       "members": [
@@ -162,7 +158,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-zA-Z_.]+"
+      "value": "[a-zA-Z0-9_.]+"
     }
   },
   "extras": [

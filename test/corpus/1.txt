@@ -8,8 +8,8 @@ Project project_name {
 --------------------------------------------------------------------------------
 
 (source
-  (project_definition
-    (keyword_project)
+  (definition
+    (keyword)
     (identifier)
     (block
       (note
@@ -27,8 +27,8 @@ Table core.user {
 --------------------------------------------------------------------------------
 
 (source
-  (schema_definition
-    (keyword_table)
+  (definition
+    (keyword)
     (identifier)
     (block)))
 
@@ -40,8 +40,27 @@ Table core.user as U {
 --------------------------------------------------------------------------------
 
 (source
-  (schema_definition
-    (keyword_table)
+  (definition
+    (keyword)
     (identifier)
     (identifier)
     (block)))
+
+================================================================================
+TableGroup
+================================================================================
+TableGroup test {
+  merchants
+  countries
+}
+--------------------------------------------------------------------------------
+
+(source
+  (definition
+    (keyword)
+    (identifier)
+    (block
+      (item
+        (identifier))
+      (item
+        (identifier)))))

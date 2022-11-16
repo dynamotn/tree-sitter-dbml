@@ -1,7 +1,9 @@
 const ANYTHING = /[^\n\r]+/;
-const IDENTIFIER = /[a-zA-Z_.]+/;
+const NEWLINE = /\r?\n/;
+const IDENTIFIER = /[a-zA-Z0-9_.]+/;
 const KEYWORD_PROJECT = "Project";
 const KEYWORD_TABLE = "Table";
+const KEYWORD_TABLE_GROUP = "TableGroup";
 const CONTENT = /[^']*/;
 const NOTE = /[nN]ote/;
 const AS = "as";
@@ -11,26 +13,22 @@ module.exports = grammar({
   name: "dbml",
 
   rules: {
-    source: ($) => repeat($._definition),
+    source: ($) => repeat($.definition),
 
-    _definition: ($) => choice($.project_definition, $.schema_definition),
+    definition: ($) =>
+      seq($.keyword, $.identifier, optional($._alias), $.block),
 
-    keyword_project: (_) => KEYWORD_PROJECT,
-
-    keyword_table: (_) => KEYWORD_TABLE,
-
-    project_definition: ($) => seq($.keyword_project, $.identifier, $.block),
-
-    schema_definition: ($) =>
-      seq($.keyword_table, $.identifier, optional($._alias), $.block),
+    keyword: (_) => choice(KEYWORD_PROJECT, KEYWORD_TABLE, KEYWORD_TABLE_GROUP),
 
     _alias: ($) => seq("as", $.identifier),
 
-    block: ($) => seq("{", repeat(choice($.note)), "}"),
+    block: ($) => seq("{", repeat(choice($.note, $.item)), "}"),
 
     note: ($) => seq($.note_start, ":", $.string),
 
     note_start: ($) => choice(NOTE, DB_TYPE),
+
+    item: ($) => seq($.identifier, NEWLINE),
 
     string: ($) => seq("'", CONTENT, "'"),
 

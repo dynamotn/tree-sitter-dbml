@@ -8,11 +8,58 @@
       "required": false,
       "types": [
         {
+          "type": "item",
+          "named": true
+        },
+        {
           "type": "note",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "keyword",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "note",
@@ -39,52 +86,6 @@
     "fields": {}
   },
   {
-    "type": "project_definition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "keyword_project",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "schema_definition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "keyword_table",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source",
     "named": true,
     "fields": {},
@@ -93,11 +94,7 @@
       "required": false,
       "types": [
         {
-          "type": "project_definition",
-          "named": true
-        },
-        {
-          "type": "schema_definition",
+          "type": "definition",
           "named": true
         }
       ]
@@ -117,6 +114,18 @@
     "named": false
   },
   {
+    "type": "Project",
+    "named": false
+  },
+  {
+    "type": "Table",
+    "named": false
+  },
+  {
+    "type": "TableGroup",
+    "named": false
+  },
+  {
     "type": "as",
     "named": false
   },
@@ -126,14 +135,6 @@
   },
   {
     "type": "identifier",
-    "named": true
-  },
-  {
-    "type": "keyword_project",
-    "named": true
-  },
-  {
-    "type": "keyword_table",
     "named": true
   },
   {
