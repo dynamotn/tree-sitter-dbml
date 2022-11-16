@@ -4,6 +4,7 @@ const KEYWORD_PROJECT = "Project";
 const KEYWORD_TABLE = "Table";
 const CONTENT = /[^']*/;
 const NOTE = /[nN]ote/;
+const AS = "as";
 const DB_TYPE = "database_type";
 
 module.exports = grammar({
@@ -20,7 +21,10 @@ module.exports = grammar({
 
     project_definition: ($) => seq($.keyword_project, $.identifier, $.block),
 
-    schema_definition: ($) => seq($.keyword_table, $.identifier, $.block),
+    schema_definition: ($) =>
+      seq($.keyword_table, $.identifier, optional($._alias), $.block),
+
+    _alias: ($) => seq("as", $.identifier),
 
     block: ($) => seq("{", repeat(choice($.note)), "}"),
 

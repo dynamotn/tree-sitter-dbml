@@ -117,6 +117,10 @@
     "named": false
   },
   {
+    "type": "as",
+    "named": false
+  },
+  {
     "type": "database_type",
     "named": false
   },
