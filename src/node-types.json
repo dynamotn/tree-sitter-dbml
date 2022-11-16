@@ -130,6 +130,10 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "database_type",
     "named": false
   },

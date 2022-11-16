@@ -3,7 +3,7 @@ Project
 ================================================================================
 Project project_name {
   database_type: 'PostgreSQL'
-  Note: 'Description of the project'
+  Note: 'Description of the project' // Comment thu 3
 }
 --------------------------------------------------------------------------------
 
@@ -17,12 +17,14 @@ Project project_name {
           (string))
       (note
         (note_start)
-          (string)))))
+          (string))
+	(comment))))
 
 ================================================================================
 Table simple
 ================================================================================
 Table core.user {
+  // Comment thu 2
 }
 --------------------------------------------------------------------------------
 
@@ -30,12 +32,15 @@ Table core.user {
   (definition
     (keyword)
     (identifier)
-    (block)))
+    (block
+      (comment))))
 
 ================================================================================
 Table alias
 ================================================================================
-Table core.user as U {
+Table core.user as U { /* Day la comment
+  cha can co gi het
+*/
 }
 --------------------------------------------------------------------------------
 
@@ -44,14 +49,15 @@ Table core.user as U {
     (keyword)
     (identifier)
     (identifier)
-    (block)))
+    (block
+      (comment))))
 
 ================================================================================
 TableGroup
 ================================================================================
 TableGroup test {
   merchants
-  countries
+  /* mot vai comment khac */ countries
 }
 --------------------------------------------------------------------------------
 
@@ -62,5 +68,6 @@ TableGroup test {
     (block
       (item
         (identifier))
+      (comment)
       (item
         (identifier)))))

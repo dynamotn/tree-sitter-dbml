@@ -12,6 +12,8 @@ const DB_TYPE = "database_type";
 module.exports = grammar({
   name: "dbml",
 
+  extras: ($) => [/\s/, $.comment],
+
   rules: {
     source: ($) => repeat($.definition),
 
@@ -33,5 +35,10 @@ module.exports = grammar({
     string: ($) => seq("'", CONTENT, "'"),
 
     identifier: (_) => IDENTIFIER,
+
+    comment: ($) =>
+      token(
+        choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))
+      ),
   },
 });
