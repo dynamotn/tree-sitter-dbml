@@ -8,11 +8,34 @@
       "required": false,
       "types": [
         {
+          "type": "index_definition",
+          "named": true
+        },
+        {
           "type": "item",
           "named": true
         },
         {
           "type": "note",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "composite_index",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -66,9 +89,65 @@
     "fields": {}
   },
   {
-    "type": "identifier",
+    "type": "index",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "composite_index",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "setting",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "index_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "index",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "index_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "index_block",
+          "named": true
+        },
+        {
+          "type": "indexes",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "item",
@@ -95,6 +174,30 @@
   },
   {
     "type": "keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name_start",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "name_start",
     "named": true,
     "fields": {}
   },
@@ -137,6 +240,10 @@
       "types": [
         {
           "type": "default",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         },
         {
@@ -193,6 +300,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
@@ -204,15 +315,19 @@
     }
   },
   {
-    "type": "\"",
-    "named": false
-  },
-  {
     "type": "'",
     "named": false
   },
   {
     "type": "'''",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
     "named": false
   },
   {
@@ -268,6 +383,10 @@
     "named": true
   },
   {
+    "type": "database_type",
+    "named": false
+  },
+  {
     "type": "decimal",
     "named": false
   },
@@ -292,8 +411,16 @@
     "named": false
   },
   {
+    "type": "identifier",
+    "named": true
+  },
+  {
     "type": "increment",
     "named": false
+  },
+  {
+    "type": "indexes",
+    "named": true
   },
   {
     "type": "integer",

@@ -140,3 +140,45 @@ TableGroup test {
       (comment)
       (item
         (identifier)))))
+
+
+================================================================================
+Index
+================================================================================
+Table test {
+  id int(10) [pk, not null, increment]
+  assignee_id int(10) [not null]
+
+  Indexes {
+    assignee_id [name: "index_assignee_id"]
+  }
+}
+--------------------------------------------------------------------------------
+
+(source
+  (definition
+    (keyword)
+    (identifier)
+    (block
+      (item
+        (identifier)
+        (type)
+        (setting
+          (setting_kind)
+          (setting_kind)
+          (setting_kind)))
+      (item
+        (identifier)
+        (type)
+        (setting
+          (setting_kind)))
+      (index_definition
+        (indexes)
+        (index_block
+          (index
+            (identifier)
+            (setting
+                  (name
+                    (name_start)
+                    (value
+                      (identifier))))))))))

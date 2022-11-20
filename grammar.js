@@ -2,6 +2,11 @@ const ANYTHING = /[^\n\r]+/;
 const NEWLINE = /\r?\n/;
 const IDENTIFIER = /[a-zA-Z0-9_.]+/;
 const CONTENT = /[^']*/;
+const PREC = {
+  NOTE: -99,
+  INDEX: 1,
+  IDENTIFIER: -1,
+};
 
 module.exports = grammar({
   name: "dbml",
@@ -18,21 +23,27 @@ module.exports = grammar({
 
     _alias: ($) => seq("as", $.identifier),
 
-    block: ($) => seq("{", repeat(choice($.note, $.item)), "}"),
+    block: ($) =>
+      seq("{", repeat(choice($.note, $.item, $.index_definition)), "}"),
 
     note: ($) => seq($.note_start, ":", $.string),
 
-    note_start: ($) => choice(/[nN]ote/, IDENTIFIER),
+    note_start: ($) => choice(/[nN]ote/, "database_type"),
 
     default: ($) => seq($.default_start, ":", $.value),
 
     default_start: ($) => "default",
+
+    name: ($) => seq($.name_start, ":", $.value),
+
+    name_start: ($) => "name",
 
     value: ($) =>
       choice(
         $.number,
         $.string,
         $.expression,
+        $.identifier,
         /true|TRUE/,
         /false|FALSE/,
         /null|NULL/
@@ -90,7 +101,9 @@ module.exports = grammar({
     setting: ($) =>
       seq(
         "[",
-        repeat(seq(choice($.note, $.default, $.setting_kind), optional(","))),
+        repeat(
+          seq(choice($.note, $.default, $.name, $.setting_kind), optional(","))
+        ),
         "]"
       ),
 
@@ -107,11 +120,29 @@ module.exports = grammar({
         "name"
       ),
 
-    identifier: (_) => seq(optional('"'), IDENTIFIER, optional('"')),
+    identifier: (_) =>
+      token(
+        prec(PREC.IDENTIFIER, seq(optional('"'), IDENTIFIER, optional('"')))
+      ),
 
     comment: ($) =>
       token(
         choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))
       ),
+
+    indexes: (_) => token(prec(PREC.INDEX, /[iI]ndexes/)),
+
+    index_definition: ($) => seq($.indexes, $.index_block),
+
+    index_block: ($) => seq("{", repeat($.index), "}"),
+
+    index: ($) =>
+      seq(
+        choice($.identifier, $.expression, $.composite_index),
+        optional($.setting)
+      ),
+
+    composite_index: ($) =>
+      seq("(", repeat(choice($.identifier, $.expression)), ")"),
   },
 });
