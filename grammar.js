@@ -53,6 +53,7 @@ module.exports = grammar({
 
     type: ($) =>
       seq(
+        optional("\""),
         choice(
           "blob",
           /bool(|ean)/,
@@ -88,6 +89,7 @@ module.exports = grammar({
           /(|n)varchar/,
           "xml"
         ),
+        optional("\""),
         optional(/\(\d+\)/)
       ),
 
