@@ -232,6 +232,10 @@
           "members": [
             {
               "type": "STRING",
+              "value": "binary"
+            },
+            {
+              "type": "STRING",
               "value": "blob"
             },
             {

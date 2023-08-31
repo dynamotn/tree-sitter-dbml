@@ -55,6 +55,7 @@ module.exports = grammar({
       seq(
         optional("\""),
         choice(
+          "binary",
           "blob",
           /bool(|ean)/,
           "bytea",
