@@ -67,7 +67,7 @@ module.exports = grammar({
           "geography",
           /box(2|3)d/,
           /json(|b)/,
-          /(big|tiny|small|)int/,
+          /(big|tiny|small|)int( unsigned|)/,
           /int(2|4|8)/,
           "integer",
           "long",

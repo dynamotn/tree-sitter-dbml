@@ -272,7 +272,7 @@
             },
             {
               "type": "PATTERN",
-              "value": "(big|tiny|small|)int"
+              "value": "(big|tiny|small|)int( unsigned|)"
             },
             {
               "type": "PATTERN",
