@@ -371,22 +371,6 @@
     "named": false
   },
   {
-    "type": "binary",
-    "named": false
-  },
-  {
-    "type": "blob",
-    "named": false
-  },
-  {
-    "type": "bytea",
-    "named": false
-  },
-  {
-    "type": "character varying",
-    "named": false
-  },
-  {
     "type": "comment",
     "named": true
   },
@@ -395,24 +379,8 @@
     "named": false
   },
   {
-    "type": "decimal",
-    "named": false
-  },
-  {
     "type": "default_start",
     "named": true
-  },
-  {
-    "type": "double",
-    "named": false
-  },
-  {
-    "type": "geography",
-    "named": false
-  },
-  {
-    "type": "geometry",
-    "named": false
   },
   {
     "type": "headercolor",
@@ -431,18 +399,6 @@
     "named": true
   },
   {
-    "type": "integer",
-    "named": false
-  },
-  {
-    "type": "long",
-    "named": false
-  },
-  {
-    "type": "money",
-    "named": false
-  },
-  {
     "type": "name",
     "named": false
   },
@@ -451,19 +407,7 @@
     "named": false
   },
   {
-    "type": "ntext",
-    "named": false
-  },
-  {
     "type": "null",
-    "named": false
-  },
-  {
-    "type": "number",
-    "named": false
-  },
-  {
-    "type": "numeric",
     "named": false
   },
   {
@@ -471,27 +415,7 @@
     "named": false
   },
   {
-    "type": "precision",
-    "named": false
-  },
-  {
     "type": "primary key",
-    "named": false
-  },
-  {
-    "type": "real",
-    "named": false
-  },
-  {
-    "type": "rowid",
-    "named": false
-  },
-  {
-    "type": "text",
-    "named": false
-  },
-  {
-    "type": "time",
     "named": false
   },
   {
@@ -500,14 +424,6 @@
   },
   {
     "type": "unique",
-    "named": false
-  },
-  {
-    "type": "uuid",
-    "named": false
-  },
-  {
-    "type": "xml",
     "named": false
   },
   {

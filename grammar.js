@@ -52,50 +52,17 @@ module.exports = grammar({
     number: ($) => repeat1(/[0-9]+/),
 
     type: ($) =>
-      seq(
-        optional("\""),
-        choice(
-          "binary",
-          "blob",
-          /bool(|ean)/,
-          "bytea",
-          /char(|acter)/,
-          "character varying",
-          /date(|time)/,
-          "double",
-          "decimal",
-          /float(|4|8)/,
-          "geometry",
-          "geography",
-          /box(2|3)d/,
-          /json(|b)/,
-          /(big|tiny|small|)int( unsigned|)/,
-          /int(2|4|8)/,
-          "integer",
-          "long",
-          "money",
-          "number",
-          "numeric",
-          "ntext",
-          "precision",
-          "rowid",
-          "real",
-          /(small|big|)serial/,
-          /serial(2|4|8)/,
-          "text",
-          "time",
-          /timestamp(|z)/,
-          /timestamp with(|out) time zone/,
-          "uuid",
-          /(|n)varchar/,
-          "xml"
+      choice(
+        seq(
+          "\"",
+          /[^\[\]\"]+/,
+          "\"",
         ),
-        optional("\""),
-        optional(/\(\d+\)/)
+        /[^\"\s]+/,
       ),
 
     item: ($) =>
-      seq($.identifier, optional($.type), optional($.setting), NEWLINE),
+      seq($.identifier, $.type, optional($.setting), NEWLINE),
 
     string: ($) => choice(seq("'", CONTENT, "'"), seq("'''", CONTENT, "'''")),
 

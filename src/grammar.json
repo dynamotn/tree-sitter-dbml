@@ -213,184 +213,28 @@
       }
     },
     "type": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
               "type": "STRING",
               "value": "\""
             },
             {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "binary"
-            },
-            {
-              "type": "STRING",
-              "value": "blob"
-            },
-            {
               "type": "PATTERN",
-              "value": "bool(|ean)"
+              "value": "[^\\[\\]\\\"]+"
             },
-            {
-              "type": "STRING",
-              "value": "bytea"
-            },
-            {
-              "type": "PATTERN",
-              "value": "char(|acter)"
-            },
-            {
-              "type": "STRING",
-              "value": "character varying"
-            },
-            {
-              "type": "PATTERN",
-              "value": "date(|time)"
-            },
-            {
-              "type": "STRING",
-              "value": "double"
-            },
-            {
-              "type": "STRING",
-              "value": "decimal"
-            },
-            {
-              "type": "PATTERN",
-              "value": "float(|4|8)"
-            },
-            {
-              "type": "STRING",
-              "value": "geometry"
-            },
-            {
-              "type": "STRING",
-              "value": "geography"
-            },
-            {
-              "type": "PATTERN",
-              "value": "box(2|3)d"
-            },
-            {
-              "type": "PATTERN",
-              "value": "json(|b)"
-            },
-            {
-              "type": "PATTERN",
-              "value": "(big|tiny|small|)int( unsigned|)"
-            },
-            {
-              "type": "PATTERN",
-              "value": "int(2|4|8)"
-            },
-            {
-              "type": "STRING",
-              "value": "integer"
-            },
-            {
-              "type": "STRING",
-              "value": "long"
-            },
-            {
-              "type": "STRING",
-              "value": "money"
-            },
-            {
-              "type": "STRING",
-              "value": "number"
-            },
-            {
-              "type": "STRING",
-              "value": "numeric"
-            },
-            {
-              "type": "STRING",
-              "value": "ntext"
-            },
-            {
-              "type": "STRING",
-              "value": "precision"
-            },
-            {
-              "type": "STRING",
-              "value": "rowid"
-            },
-            {
-              "type": "STRING",
-              "value": "real"
-            },
-            {
-              "type": "PATTERN",
-              "value": "(small|big|)serial"
-            },
-            {
-              "type": "PATTERN",
-              "value": "serial(2|4|8)"
-            },
-            {
-              "type": "STRING",
-              "value": "text"
-            },
-            {
-              "type": "STRING",
-              "value": "time"
-            },
-            {
-              "type": "PATTERN",
-              "value": "timestamp(|z)"
-            },
-            {
-              "type": "PATTERN",
-              "value": "timestamp with(|out) time zone"
-            },
-            {
-              "type": "STRING",
-              "value": "uuid"
-            },
-            {
-              "type": "PATTERN",
-              "value": "(|n)varchar"
-            },
-            {
-              "type": "STRING",
-              "value": "xml"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
             {
               "type": "STRING",
               "value": "\""
-            },
-            {
-              "type": "BLANK"
             }
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "\\(\\d+\\)"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "PATTERN",
+          "value": "[^\\\"\\s]+"
         }
       ]
     },
@@ -402,16 +246,8 @@
           "name": "identifier"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "type"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "type"
         },
         {
           "type": "CHOICE",
