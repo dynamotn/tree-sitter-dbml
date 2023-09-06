@@ -76,7 +76,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "keyword"
+          "name": "keyword_def"
         },
         {
           "type": "SYMBOL",
@@ -100,7 +100,7 @@
         }
       ]
     },
-    "keyword": {
+    "keyword_def": {
       "type": "CHOICE",
       "members": [
         {
@@ -117,12 +117,16 @@
         }
       ]
     },
+    "keyword_ref": {
+      "type": "STRING",
+      "value": "Ref"
+    },
     "reference": {
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "[Rr]ef"
+          "type": "SYMBOL",
+          "name": "keyword_ref"
         },
         {
           "type": "STRING",

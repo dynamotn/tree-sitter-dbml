@@ -96,7 +96,7 @@
           "named": true
         },
         {
-          "type": "keyword",
+          "type": "keyword_def",
           "named": true
         },
         {
@@ -196,7 +196,7 @@
     }
   },
   {
-    "type": "keyword",
+    "type": "keyword_def",
     "named": true,
     "fields": {}
   },
@@ -263,6 +263,10 @@
       "types": [
         {
           "type": "column",
+          "named": true
+        },
+        {
+          "type": "keyword_ref",
           "named": true
         }
       ]
@@ -476,6 +480,10 @@
   },
   {
     "type": "indexes",
+    "named": true
+  },
+  {
+    "type": "keyword_ref",
     "named": true
   },
   {

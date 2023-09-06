@@ -24,12 +24,14 @@ module.exports = grammar({
     column: ($) => prec.left(PREC.COLUMN, seq(optional($.schema), $.identifier, ".", $.identifier)),
 
     definition: ($) =>
-      seq($.keyword, $.table, optional($._alias), $.block),
+      seq($.keyword_def, $.table, optional($._alias), $.block),
 
-    keyword: (_) => choice("Project", "Table", "TableGroup"),
+    keyword_def: (_) => choice("Project", "Table", "TableGroup"),
+
+    keyword_ref: (_) => "Ref",
 
     reference: ($) =>
-      seq(/[Rr]ef/, ":", $.column, CARDINALITY, $.column),
+      seq($.keyword_ref, ":", $.column, CARDINALITY, $.column),
 
     _alias: ($) => seq("as", $.identifier),
 
