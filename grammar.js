@@ -1,6 +1,6 @@
 const ANYTHING = /[^\n\r]+/;
 const NEWLINE = /\r?\n/;
-const IDENTIFIER = /[a-zA-Z0-9_.]+/;
+const IDENTIFIER = /[a-zA-Z0-9_]+/;
 const CONTENT = /[^'\"]*/;
 const CARDINALITY = /[-<>]/;
 const PREC = {
