@@ -5,8 +5,8 @@ const CONTENT = /[^'\"]*/;
 const CARDINALITY = /[-<>]/;
 const PREC = {
   NOTE: -99,
-  COLUMN: 3,
-  SCHEMA: 2,
+  COLUMN: 2,
+  SCHEMA: 3,
   INDEX: 1,
   IDENTIFIER: -1,
 };

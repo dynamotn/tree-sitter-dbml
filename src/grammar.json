@@ -40,7 +40,7 @@
     },
     "column": {
       "type": "PREC_LEFT",
-      "value": 3,
+      "value": 2,
       "content": {
         "type": "SEQ",
         "members": [
@@ -569,7 +569,7 @@
     },
     "schema": {
       "type": "PREC_LEFT",
-      "value": 2,
+      "value": 3,
       "content": {
         "type": "SEQ",
         "members": [
