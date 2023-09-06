@@ -1,7 +1,7 @@
 const ANYTHING = /[^\n\r]+/;
 const NEWLINE = /\r?\n/;
 const IDENTIFIER = /[a-zA-Z0-9_.]+/;
-const CONTENT = /[^']*/;
+const CONTENT = /[^'\"]*/;
 const PREC = {
   NOTE: -99,
   INDEX: 1,
@@ -64,7 +64,7 @@ module.exports = grammar({
     item: ($) =>
       seq($.identifier, $.type, optional($.setting), NEWLINE),
 
-    string: ($) => choice(seq("'", CONTENT, "'"), seq("'''", CONTENT, "'''")),
+    string: ($) => choice(seq("'", CONTENT, "'"), seq("'''", CONTENT, "'''"), seq("\"", CONTENT, "\"")),
 
     expression: ($) => seq("`", /[^`]*/, "`"),
 
