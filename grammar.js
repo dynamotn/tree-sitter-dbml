@@ -2,8 +2,11 @@ const ANYTHING = /[^\n\r]+/;
 const NEWLINE = /\r?\n/;
 const IDENTIFIER = /[a-zA-Z0-9_.]+/;
 const CONTENT = /[^'\"]*/;
+const CARDINALITY = /[-<>]/;
 const PREC = {
   NOTE: -99,
+  COLUMN: 3,
+  SCHEMA: 2,
   INDEX: 1,
   IDENTIFIER: -1,
 };
@@ -14,12 +17,19 @@ module.exports = grammar({
   extras: ($) => [/\s/, $.comment],
 
   rules: {
-    source: ($) => repeat($.definition),
+    source: ($) => repeat(choice($.definition, $.reference)),
+
+    table: ($) => seq(optional($.schema), $.identifier),
+
+    column: ($) => prec.left(PREC.COLUMN, seq(optional($.schema), $.identifier, ".", $.identifier)),
 
     definition: ($) =>
-      seq($.keyword, optional($.schema), $.identifier, optional($._alias), $.block),
+      seq($.keyword, $.table, optional($._alias), $.block),
 
     keyword: (_) => choice("Project", "Table", "TableGroup"),
+
+    reference: ($) =>
+      seq(/[Rr]ef/, ":", $.column, CARDINALITY, $.column),
 
     _alias: ($) => seq("as", $.identifier),
 
@@ -95,7 +105,7 @@ module.exports = grammar({
         prec(PREC.IDENTIFIER, seq(optional('"'), IDENTIFIER, optional('"')))
       ),
 
-    schema: ($) => seq($.identifier, "."),
+    schema: ($) => prec.left(PREC.SCHEMA, seq($.identifier, ".")),
 
     comment: ($) =>
       token(

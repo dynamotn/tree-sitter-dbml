@@ -23,6 +23,25 @@
     }
   },
   {
+    "type": "column",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "schema",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "composite_index",
     "named": true,
     "fields": {},
@@ -81,7 +100,7 @@
           "named": true
         },
         {
-          "type": "schema",
+          "type": "table",
           "named": true
         }
       ]
@@ -235,6 +254,21 @@
     "fields": {}
   },
   {
+    "type": "reference",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "column",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "schema",
     "named": true,
     "fields": {},
@@ -292,6 +326,10 @@
         {
           "type": "definition",
           "named": true
+        },
+        {
+          "type": "reference",
+          "named": true
         }
       ]
     }
@@ -300,6 +338,25 @@
     "type": "string",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "table",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "schema",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "type",
