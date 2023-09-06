@@ -17,7 +17,7 @@ module.exports = grammar({
     source: ($) => repeat($.definition),
 
     definition: ($) =>
-      seq($.keyword, $.identifier, optional($._alias), $.block),
+      seq($.keyword, optional($.schema), $.identifier, optional($._alias), $.block),
 
     keyword: (_) => choice("Project", "Table", "TableGroup"),
 
@@ -94,6 +94,8 @@ module.exports = grammar({
       token(
         prec(PREC.IDENTIFIER, seq(optional('"'), IDENTIFIER, optional('"')))
       ),
+
+    schema: ($) => seq($.identifier, "."),
 
     comment: ($) =>
       token(

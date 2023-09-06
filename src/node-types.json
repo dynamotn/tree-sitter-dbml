@@ -79,6 +79,10 @@
         {
           "type": "keyword",
           "named": true
+        },
+        {
+          "type": "schema",
+          "named": true
         }
       ]
     }
@@ -231,6 +235,21 @@
     "fields": {}
   },
   {
+    "type": "schema",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "setting",
     "named": true,
     "fields": {},
@@ -336,6 +355,10 @@
   },
   {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
