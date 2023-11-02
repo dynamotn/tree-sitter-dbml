@@ -2,7 +2,7 @@ const ANYTHING = /[^\n\r]+/;
 const NEWLINE = /\r?\n/;
 const IDENTIFIER = /[a-zA-Z0-9_]+/;
 const CONTENT = /[^'\"]*/;
-const CARDINALITY = /[-<>]/;
+const CARDINALITY = /[-<>]|<>/;
 const PREC = {
   NOTE: -99,
   COLUMN: 2,
