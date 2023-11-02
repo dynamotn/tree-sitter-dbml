@@ -17,7 +17,7 @@ module.exports = grammar({
   extras: ($) => [/\s/, $.comment],
 
   rules: {
-    source: ($) => repeat(choice($.definition, $.reference)),
+    source: ($) => repeat(choice($.definition, $.reference, $.enum)),
 
     table: ($) => seq(optional($.schema), $.identifier),
 
@@ -30,8 +30,13 @@ module.exports = grammar({
 
     keyword_ref: (_) => "Ref",
 
+    keyword_enum: (_) => "Enum",
+
+
     reference: ($) =>
       seq($.keyword_ref, ":", $.column, CARDINALITY, $.column),
+
+    enum: ($) => seq($.keyword_enum, $.identifier, $.block),
 
     _alias: ($) => seq("as", $.identifier),
 

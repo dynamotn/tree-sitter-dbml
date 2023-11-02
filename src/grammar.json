@@ -13,6 +13,10 @@
           {
             "type": "SYMBOL",
             "name": "reference"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "enum"
           }
         ]
       }
@@ -121,6 +125,10 @@
       "type": "STRING",
       "value": "Ref"
     },
+    "keyword_enum": {
+      "type": "STRING",
+      "value": "Enum"
+    },
     "reference": {
       "type": "SEQ",
       "members": [
@@ -143,6 +151,23 @@
         {
           "type": "SYMBOL",
           "name": "column"
+        }
+      ]
+    },
+    "enum": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "keyword_enum"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
         }
       ]
     },

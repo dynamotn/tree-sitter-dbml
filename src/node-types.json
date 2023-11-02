@@ -107,6 +107,29 @@
     }
   },
   {
+    "type": "enum",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword_enum",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {}
@@ -332,6 +355,10 @@
           "named": true
         },
         {
+          "type": "enum",
+          "named": true
+        },
+        {
           "type": "reference",
           "named": true
         }
@@ -480,6 +507,10 @@
   },
   {
     "type": "indexes",
+    "named": true
+  },
+  {
+    "type": "keyword_enum",
     "named": true
   },
   {
