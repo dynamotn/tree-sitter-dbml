@@ -115,7 +115,7 @@
       "required": true,
       "types": [
         {
-          "type": "block",
+          "type": "enum_block",
           "named": true
         },
         {
@@ -124,6 +124,40 @@
         },
         {
           "type": "keyword_enum",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "enum_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "setting",
           "named": true
         }
       ]

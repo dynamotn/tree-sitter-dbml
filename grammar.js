@@ -36,12 +36,15 @@ module.exports = grammar({
     reference: ($) =>
       seq($.keyword_ref, ":", $.column, CARDINALITY, $.column),
 
-    enum: ($) => seq($.keyword_enum, $.identifier, $.block),
+    enum: ($) => seq($.keyword_enum, $.identifier, $.enum_block),
 
     _alias: ($) => seq("as", $.identifier),
 
     block: ($) =>
       seq("{", repeat(choice($.note, $.item, $.index_definition)), "}"),
+
+    enum_block: ($) =>
+      seq("{", repeat(choice($.enum_item)), "}"),
 
     note: ($) => seq($.note_start, ":", $.string),
 
@@ -80,6 +83,9 @@ module.exports = grammar({
 
     item: ($) =>
       seq($.identifier, $.type, optional($.setting), NEWLINE),
+
+    enum_item: ($) =>
+      seq($.identifier, optional($.setting), NEWLINE),
 
     string: ($) => choice(seq("'", CONTENT, "'"), seq("'''", CONTENT, "'''"), seq("\"", CONTENT, "\"")),
 
