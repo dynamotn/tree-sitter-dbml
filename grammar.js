@@ -30,8 +30,7 @@ module.exports = grammar({
 
     keyword_ref: (_) => "Ref",
 
-    keyword_enum: (_) => "Enum",
-
+    keyword_enum: (_) => /[Ee]num/,
 
     reference: ($) =>
       seq($.keyword_ref, ":", $.column, CARDINALITY, $.column),

@@ -126,8 +126,8 @@
       "value": "Ref"
     },
     "keyword_enum": {
-      "type": "STRING",
-      "value": "Enum"
+      "type": "PATTERN",
+      "value": "[Ee]num"
     },
     "reference": {
       "type": "SEQ",
