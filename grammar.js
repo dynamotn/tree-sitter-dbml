@@ -127,6 +127,12 @@ module.exports = grammar({
       ),
 
     composite_index: ($) =>
-      seq("(", repeat(choice($.identifier, $.expression)), ")"),
+      seq(
+        "(",
+        repeat(
+          seq(choice($.identifier, $.expression), optional(","))
+        ),
+        ")"
+      ),
   },
 });
